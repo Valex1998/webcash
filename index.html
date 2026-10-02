@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="WebCash : découvrez des astuces numériques, des conseils pour Internet, des actualités et des guides pratiques pour mieux utiliser le Web.">
+<meta name="description" content="CyberZone : découvrez des astuces numériques, des conseils pour Internet, des actualités et des guides pratiques pour mieux utiliser le Web.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://valex1998.github.io/webcash/">
-<meta property="og:title" content="WebCash — Le numérique, simplement">
+<link rel="canonical" href="https://valex1998.github.io/CyberZone/">
+<meta property="og:title" content="CyberZone — Le numérique, simplement">
 <meta property="og:description" content="Des astuces, des guides et des découvertes pour profiter pleinement d’Internet.">
-<meta property="og:url" content="https://valex1998.github.io/webcash/">
+<meta property="og:url" content="https://valex1998.github.io/CyberZone/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#101b35">
-<title>WebCash — Le numérique, simplement</title>
+<title>CyberZone — Le numérique, simplement</title>
 <style>
 :root{--ink:#17223b;--muted:#65718a;--paper:#f5f7fc;--white:#fff;--line:#e5e9f2;--purple:#6958e8;--purple2:#897bf6;--navy:#101b35;--mint:#c9f4e4;--shadow:0 18px 50px rgba(25,39,75,.09)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit}button,input{font:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
@@ -31,7 +31,7 @@ footer{background:#0b1429;color:#d5dced;padding:36px 0}.foot{display:flex;justif
 <body>
 <header>
  <div class="wrap nav">
-  <a class="brand" href="#" aria-label="WebCash, accueil"><span class="brandmark">✦</span> WebCash</a>
+  <a class="brand" href="#" aria-label="CyberZone, accueil"><span class="brandmark">✦</span> CyberZone</a>
   <nav class="navlinks" aria-label="Navigation principale">
    <a href="#articles">Articles</a><a href="#apropos">À propos</a><a class="nav-cta" href="#articles">Explorer le magazine ↗</a>
   </nav>
@@ -67,9 +67,9 @@ footer{background:#0b1429;color:#d5dced;padding:36px 0}.foot{display:flex;justif
   <div class="meta" id="readerMeta"></div><div class="prose" id="readerBody"></div><div class="source" id="readerSources"></div>
  </article>
  <div class="adslot" aria-label="Espace publicitaire réservé"><div><strong>Espace publicitaire</strong><p>Emplacement réservé — à connecter uniquement après validation par une régie.</p></div></div>
- <section class="newsletter" id="apropos"><div><h2>Bienvenue chez WebCash ✨</h2><p>Un magazine indépendant pour apprendre, comprendre et explorer le monde numérique.</p></div><div class="newsletter-note">Pas de collecte d’e-mail pour le moment.</div></section>
+ <section class="newsletter" id="apropos"><div><h2>Bienvenue chez CyberZone ✨</h2><p>Un magazine indépendant pour apprendre, comprendre et explorer le monde numérique.</p></div><div class="newsletter-note">Pas de collecte d’e-mail pour le moment.</div></section>
 </main>
-<footer><div class="wrap foot"><div><a class="brand" href="#"><span class="brandmark">✦</span> WebCash</a><p>Des contenus pratiques pour naviguer, apprendre et découvrir. Les articles sont informatifs : vérifie les recommandations importantes auprès des sources officielles.</p><p>© <span id="year"></span> WebCash</p></div><div class="footlinks"><a href="#apropos">À propos</a><a href="mailto:contact@exemple.fr">Contact (à configurer)</a></div></div></footer>
+<footer><div class="wrap foot"><div><a class="brand" href="#"><span class="brandmark">✦</span> CyberZone</a><p>Des contenus pratiques pour naviguer, apprendre et découvrir. Les articles sont informatifs : vérifie les recommandations importantes auprès des sources officielles.</p><p>© <span id="year"></span> CyberZone</p></div><div class="footlinks"><a href="#apropos">À propos</a><a href="mailto:contact@exemple.fr">Contact (à configurer)</a></div></div></footer>
 <script>
 const articles=[
 {id:"privacy",cat:"Sécurité",title:"Protéger sa vie privée sur Internet : les bons réflexes",intro:"Nos comptes, nos recherches et nos appareils laissent des traces. Voici comment mieux comprendre ses données et réduire les risques sans devenir expert en informatique.",time:"8 min",icon:"🛡️",color:"art-green",date:"Guide pratique",body:`
@@ -154,7 +154,7 @@ const grid=document.getElementById("grid"),reader=document.getElementById("reade
 function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function render(){
  const shown=articles.filter(a=>(activeFilter==="Tout"||a.cat===activeFilter)&&(`${a.title} ${a.intro} ${a.cat}`).toLowerCase().includes(query.toLowerCase()));
- grid.innerHTML=shown.map(a=>`<article class="article-card"><div class="card-art ${a.color}" aria-hidden="true"><span>${a.icon}</span></div><div class="card-body"><div class="meta"><span class="category">${escapeHTML(a.cat)}</span><span>·</span><span>${escapeHTML(a.time)}</span></div><h3>${escapeHTML(a.title)}</h3><p>${escapeHTML(a.intro)}</p><div class="card-bottom"><button class="readlink" data-open="${a.id}">Lire l’article →</button><span class="meta">WebCash</span></div></div></article>`).join("");
+ grid.innerHTML=shown.map(a=>`<article class="article-card"><div class="card-art ${a.color}" aria-hidden="true"><span>${a.icon}</span></div><div class="card-body"><div class="meta"><span class="category">${escapeHTML(a.cat)}</span><span>·</span><span>${escapeHTML(a.time)}</span></div><h3>${escapeHTML(a.title)}</h3><p>${escapeHTML(a.intro)}</p><div class="card-bottom"><button class="readlink" data-open="${a.id}">Lire l’article →</button><span class="meta">CyberZone</span></div></div></article>`).join("");
  document.getElementById("empty").style.display=shown.length?"none":"block";
 }
 function openArticle(id){
@@ -162,14 +162,14 @@ function openArticle(id){
  document.getElementById("readerCat").textContent=a.cat;
  document.getElementById("readerTitle").textContent=a.title;
  document.getElementById("readerIntro").textContent=a.intro;
- document.getElementById("readerMeta").textContent=`WebCash  ·  ${a.date}  ·  ${a.time} de lecture`;
+ document.getElementById("readerMeta").textContent=`CyberZone  ·  ${a.date}  ·  ${a.time} de lecture`;
  document.getElementById("readerBody").innerHTML=a.body;
  const src=document.getElementById("readerSources");
  src.innerHTML="<strong>Pour approfondir</strong><p>Sources et ressources utiles :</p>"+a.sources.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener noreferrer">${escapeHTML(s[0])} ↗</a>`).join("");
  listing.style.display="none";reader.classList.add("open");window.scrollTo({top:0,behavior:"smooth"});history.replaceState(null,"",`#article-${id}`);
- document.title=a.title+" — WebCash";
+ document.title=a.title+" — CyberZone";
 }
-function closeArticle(){reader.classList.remove("open");listing.style.display="block";history.replaceState(null,"",location.pathname);document.title="WebCash — Le numérique, simplement";window.scrollTo({top:document.getElementById("listing").offsetTop-20,behavior:"smooth"});}
+function closeArticle(){reader.classList.remove("open");listing.style.display="block";history.replaceState(null,"",location.pathname);document.title="CyberZone — Le numérique, simplement";window.scrollTo({top:document.getElementById("listing").offsetTop-20,behavior:"smooth"});}
 grid.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openArticle(b.dataset.open);});
 document.getElementById("featured").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openArticle(b.dataset.open);});
 document.getElementById("back").addEventListener("click",closeArticle);
