@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebCash - Accueil</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  color: #172b4d;
+}
+header {
+  background: #142b50;
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+nav {
+  background: #203c67;
+  text-align: center;
+  padding: 14px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+}
+main {
+  max-width: 950px;
+  margin: auto;
+  padding: 25px 15px;
+}
+h2 {
+  color: #142b50;
+}
+.pub {
+  background: white;
+  border: 2px dashed #8ba69a;
+  border-radius: 12px;
+  min-height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 25px 0;
+  color: #60776b;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+    minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #0001;
+}
+footer {
+  background: #142b50;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>💎 WebCash</h1>
+  <p>Découvre, explore et apprends !</p>
+</header>
+
+<nav>
+  <a href="#">Accueil</a>
+  <a href="#astuces">Astuces</a>
+  <a href="#decouvertes">Découvertes</a>
+</nav>
+
+<main>
+  <div class="pub">
+    <div>
+      <strong>📢 Espace publicitaire</strong>
+      <p>Publicité à venir</p>
+    </div>
+  </div>
+
+  <h2>Bienvenue sur WebCash !</h2>
+  <p>
+    Retrouve ici des astuces, des découvertes
+    et des informations intéressantes.
+  </p>
+
+  <div class="cards">
+    <div class="card" id="astuces">
+      <h3>💡 Astuces</h3>
+      <p>Des conseils pratiques pour Internet.</p>
+    </div>
+
+    <div class="card" id="decouvertes">
+      <h3>🌍 Découvertes</h3>
+      <p>Explore de nouvelles idées et de nouveaux sujets.</p>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div>
+      <strong>📢 Espace publicitaire</strong>
+      <p>Un autre emplacement publicitaire</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 WebCash</p>
+</footer>
+
+</body>
+</html>
