@@ -4,124 +4,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebCash - Accueil</title>
+<meta name="description" content="WebCash : astuces, actualités et découvertes sur Internet.">
+<title>WebCash - Le magazine du web</title>
 <style>
-* {
-  box-sizing: border-box;
+:root {
+  --blue: #172b4d;
+  --accent: #6c63ff;
+  --bg: #f4f6fb;
+  --text: #202a3a;
 }
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f1f5f9;
-  color: #172b4d;
+  background: var(--bg);
+  color: var(--text);
 }
 header {
-  background: #142b50;
+  background: var(--blue);
   color: white;
-  text-align: center;
-  padding: 35px 15px;
+  padding: 22px 7%;
 }
-nav {
-  background: #203c67;
-  text-align: center;
-  padding: 14px;
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
+.logo { font-size: 28px; font-weight: bold; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; }
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 12px;
+}
+nav a:hover { color: #c8c4ff; }
+.hero {
+  text-align: center;
+  padding: 65px 20px;
+  background: linear-gradient(135deg,#263e6b,#7165e8);
+  color: white;
+}
+.hero h1 { font-size: 38px; margin: 0 0 15px; }
+.hero p { font-size: 18px; }
+button {
+  background: var(--accent);
+  border: 0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
 }
 main {
-  max-width: 950px;
+  max-width: 1100px;
   margin: auto;
-  padding: 25px 15px;
+  padding: 25px 20px;
 }
-h2 {
-  color: #142b50;
-}
-.pub {
+.ad {
+  min-height: 100px;
+  border: 2px dashed #b4b8c5;
   background: white;
-  border: 2px dashed #8ba69a;
-  border-radius: 12px;
-  min-height: 110px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 25px 0;
-  color: #60776b;
-}
-.cards {
+  border-radius: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit,
-    minmax(220px, 1fr));
+  place-items: center;
+  text-align: center;
+  color: #747b8a;
+  margin: 25px 0;
+}
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 30px 0 20px;
+}
+input {
+  padding: 12px;
+  border: 1px solid #cdd2df;
+  border-radius: 8px;
+  font-size: 15px;
+  max-width: 100%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
   gap: 20px;
 }
 .card {
   background: white;
   padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px #0001;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px #172b4d12;
 }
+.card h3 { margin-top: 0; }
+.tag {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: bold;
+}
+.card button { margin-top: 12px; }
+.hidden { display: none; }
 footer {
-  background: #142b50;
-  color: white;
+  margin-top: 50px;
+  padding: 30px 20px;
   text-align: center;
-  padding: 25px;
-  margin-top: 40px;
+  background: var(--blue);
+  color: white;
+}
+footer a { color: white; margin: 0 8px; }
+@media(max-width:600px) {
+  .hero h1 { font-size: 29px; }
+  .top { justify-content: center; }
+  nav { justify-content: center; }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>💎 WebCash</h1>
-  <p>Découvre, explore et apprends !</p>
+  <div class="top">
+    <div class="logo">💎 WebCash</div>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#articles">Articles</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+  </div>
 </header>
 
-<nav>
-  <a href="#">Accueil</a>
-  <a href="#astuces">Astuces</a>
-  <a href="#decouvertes">Découvertes</a>
-</nav>
+<section class="hero" id="accueil">
+  <h1>Bienvenue sur WebCash !</h1>
+  <p>Le web regorge de découvertes. Explorons-les ensemble.</p>
+  <a href="#articles">
+    <button>Découvrir les articles</button>
+  </a>
+</section>
 
 <main>
-  <div class="pub">
+  <div class="ad">
     <div>
-      <strong>📢 Espace publicitaire</strong>
-      <p>Publicité à venir</p>
+      <strong>Emplacement publicitaire</strong>
+      <p>Publicité à intégrer après validation par une régie</p>
     </div>
   </div>
 
-  <h2>Bienvenue sur WebCash !</h2>
-  <p>
-    Retrouve ici des astuces, des découvertes
-    et des informations intéressantes.
-  </p>
-
-  <div class="cards">
-    <div class="card" id="astuces">
-      <h3>💡 Astuces</h3>
-      <p>Des conseils pratiques pour Internet.</p>
+  <section id="articles">
+    <div class="tools">
+      <h2>📰 Nos articles</h2>
+      <input id="search" type="search"
+        placeholder="Rechercher un article..."
+        aria-label="Rechercher un article">
     </div>
 
-    <div class="card" id="decouvertes">
-      <h3>🌍 Découvertes</h3>
-      <p>Explore de nouvelles idées et de nouveaux sujets.</p>
-    </div>
-  </div>
+    <div class="grid" id="articleGrid">
+      <article class="card" data-search="internet sécurité mot de passe">
+        <span class="tag">SÉCURITÉ</span>
+        <h3>Comment créer un mot de passe sécurisé ?</h3>
+        <p>Découvre les bonnes pratiques pour mieux protéger tes comptes.</p>
+        <button onclick="showArticle(0)">Lire la suite</button>
+      </article>
 
-  <div class="pub">
+      <article class="card" data-search="technologie ordinateur pc entretien">
+        <span class="tag">TECHNOLOGIE</span>
+        <h3>5 astuces pour entretenir son PC</h3>
+        <p>Quelques conseils pour garder un ordinateur en bon état.</p>
+        <button onclick="showArticle(1)">Lire la suite</button>
+      </article>
+
+      <article class="card" data-search="internet navigateur astuces">
+        <span class="tag">ASTUCES</span>
+        <h3>Des fonctions utiles de ton navigateur</h3>
+        <p>Apprends à utiliser quelques fonctions pratiques du web.</p>
+        <button onclick="showArticle(2)">Lire la suite</button>
+      </article>
+    </div>
+
+    <section id="reader" class="card hidden" style="margin-top:25px">
+      <button onclick="closeArticle()">← Retour aux articles</button>
+      <h2 id="articleTitle"></h2>
+      <div id="articleContent"></div>
+    </section>
+    <p id="noResult" class="hidden">Aucun article trouvé.</p>
+  </section>
+
+  <div class="ad">
     <div>
-      <strong>📢 Espace publicitaire</strong>
-      <p>Un autre emplacement publicitaire</p>
+      <strong>Deuxième emplacement publicitaire</strong>
+      <p>Espace réservé à une future publicité</p>
     </div>
   </div>
+
+  <section id="apropos" class="card">
+    <h2>À propos de WebCash</h2>
+    <p>WebCash est un site consacré aux astuces,
+    aux découvertes et aux informations sur Internet.</p>
+  </section>
 </main>
 
 <footer>
-  <p>© 2026 WebCash</p>
+  <p>© 2026 WebCash - Tous droits réservés</p>
+  <p>
+    <a href="mailto:contact@exemple.fr">Contact</a>
+    <a href="#apropos">À propos</a>
+  </p>
 </footer>
+
+<script>
+const articles = [
+  {
+    title: "Comment créer un mot de passe sécurisé ?",
+    content: `
+      <p>Un mot de passe solide est essentiel pour protéger
+      ses comptes sur Internet.</p>
+      <h3>Quelques conseils</h3>
+      <ul>
+        <li>Utilise des mots de passe longs et uniques.</li>
+        <li>Évite les informations personnelles évidentes.</li>
+        <li>Utilise un gestionnaire de mots de passe.</li>
+        <li>Active la double authentification quand c'est possible.</li>
+      </ul>
+      <p>Ne partage jamais tes mots de passe avec d'autres personnes.</p>
+    `
+  },
+  {
+    title: "5 astuces pour entretenir son PC",
+    content: `
+      <p>Entretenir régulièrement son ordinateur permet
+      de le garder en bon état.</p>
+      <h3>Nos conseils</h3>
+      <ul>
+        <li>Nettoie régulièrement les fichiers inutiles.</li>
+        <li>Installe les mises à jour.</li>
+        <li>Évite de bloquer les aérations.</li>
+        <li>Fais des sauvegardes de tes fichiers.</li>
+        <li>Supprime les logiciels que tu n'utilises plus.</li>
+      </ul>
+    `
+  },
+  {
+    title: "Des fonctions utiles de ton navigateur",
+    content: `
+      <p>Ton navigateur possède de nombreuses fonctions
+      pratiques souvent méconnues.</p>
+      <h3>Quelques exemples</h3>
+      <ul>
+        <li>Utilise les favoris pour retrouver tes sites.</li>
+        <li>Ouvre plusieurs onglets pour travailler.</li>
+        <li>Utilise la navigation privée pour certaines sessions.</li>
+        <li>Vérifie les autorisations accordées aux sites.</li>
+      </ul>
+    `
+  }
+];
+
+function showArticle(index) {
+  document.getElementById("articleTitle").textContent =
+    articles[index].title;
+  document.getElementById("articleContent").innerHTML =
+    articles[index].content;
+  document.getElementById("reader").classList.remove("hidden");
+  document.getElementById("reader").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function closeArticle() {
+  document.getElementById("reader").classList.add("hidden");
+}
+
+document.getElementById("search").addEventListener("input", function() {
+  const query = this.value.toLowerCase();
+  let visible = 0;
+  document.querySelectorAll(".card[data-search]").forEach(card => {
+    const match = card.dataset.search.includes(query) ||
+      card.textContent.toLowerCase().includes(query);
+    card.style.display = match ? "" : "none";
+    if (match) visible++;
+  });
+  document.getElementById("noResult").classList.toggle(
+    "hidden", visible !== 0
+  );
+});
+</script>
+</body>
+</html>
 
 </body>
 </html>
