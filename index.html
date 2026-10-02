@@ -1,294 +1,182 @@
+from pathlib import Path
 
-<!DOCTYPE html>
+html = r'''<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="WebCash : astuces, actualités et découvertes sur Internet.">
-<title>WebCash - Le magazine du web</title>
+<meta name="description" content="WebCash : des guides pratiques, des astuces numériques et des découvertes pour mieux utiliser Internet et la technologie.">
+<meta name="theme-color" content="#101b35">
+<title>WebCash — Le numérique, simplement</title>
 <style>
-:root {
-  --blue: #172b4d;
-  --accent: #6c63ff;
-  --bg: #f4f6fb;
-  --text: #202a3a;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
-header {
-  background: var(--blue);
-  color: white;
-  padding: 22px 7%;
-}
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-.logo { font-size: 28px; font-weight: bold; }
-nav { display: flex; gap: 20px; flex-wrap: wrap; }
-nav a {
-  color: white;
-  text-decoration: none;
-}
-nav a:hover { color: #c8c4ff; }
-.hero {
-  text-align: center;
-  padding: 65px 20px;
-  background: linear-gradient(135deg,#263e6b,#7165e8);
-  color: white;
-}
-.hero h1 { font-size: 38px; margin: 0 0 15px; }
-.hero p { font-size: 18px; }
-button {
-  background: var(--accent);
-  border: 0;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-}
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 25px 20px;
-}
-.ad {
-  min-height: 100px;
-  border: 2px dashed #b4b8c5;
-  background: white;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  color: #747b8a;
-  margin: 25px 0;
-}
-.tools {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin: 30px 0 20px;
-}
-input {
-  padding: 12px;
-  border: 1px solid #cdd2df;
-  border-radius: 8px;
-  font-size: 15px;
-  max-width: 100%;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-  gap: 20px;
-}
-.card {
-  background: white;
-  padding: 22px;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px #172b4d12;
-}
-.card h3 { margin-top: 0; }
-.tag {
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: bold;
-}
-.card button { margin-top: 12px; }
-.hidden { display: none; }
-footer {
-  margin-top: 50px;
-  padding: 30px 20px;
-  text-align: center;
-  background: var(--blue);
-  color: white;
-}
-footer a { color: white; margin: 0 8px; }
-@media(max-width:600px) {
-  .hero h1 { font-size: 29px; }
-  .top { justify-content: center; }
-  nav { justify-content: center; }
-}
+:root{--ink:#17223b;--muted:#65718a;--paper:#f5f7fc;--white:#fff;--line:#e5e9f2;--purple:#6958e8;--purple2:#897bf6;--navy:#101b35;--mint:#c9f4e4;--shadow:0 18px 50px rgba(25,39,75,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit}button,input{font:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+header{background:var(--navy);color:white;position:relative;z-index:2}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:850;font-size:1.35rem;letter-spacing:-.04em}.brandmark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#a99eff,#6958e8);display:grid;place-items:center;color:white;font-size:20px}.navlinks{display:flex;align-items:center;gap:26px}.navlinks a{text-decoration:none;color:#dce3f6;font-size:.94rem}.navlinks a:hover{color:white}.nav-cta{background:#fff;color:var(--navy)!important;padding:9px 15px;border-radius:999px;font-weight:700}
+.hero{background:radial-gradient(ellipse at 80% 20%,rgba(137,123,246,.4),transparent 34%),linear-gradient(120deg,#101b35,#1e2d56);color:white;padding:76px 0 82px;overflow:hidden}.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px}.eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.12em;font-size:.74rem;font-weight:800;color:#c9c2ff}.dot{width:7px;height:7px;background:var(--mint);border-radius:50%}.hero h1{font-size:clamp(2.5rem,5.5vw,4.5rem);line-height:1.04;letter-spacing:-.065em;margin:18px 0}.hero h1 span{color:#bcb3ff}.hero p{max-width:570px;color:#d5def3;font-size:1.08rem;margin:0 0 27px}.primary{display:inline-flex;align-items:center;gap:10px;background:var(--purple);color:white;text-decoration:none;padding:13px 19px;border-radius:12px;font-weight:750;box-shadow:0 10px 25px #6958e84a}.primary:hover{background:#7969f0}.hero-art{min-height:290px;position:relative;display:grid;place-items:center}.orb{width:245px;height:245px;border-radius:42% 58% 55% 45%;background:linear-gradient(145deg,#b9b0ff,#6d5be9 60%,#5140c6);transform:rotate(-12deg);box-shadow:0 35px 80px #0004;display:grid;place-items:center;font-size:100px}.float{position:absolute;background:#fff;color:var(--ink);padding:12px 16px;border-radius:14px;box-shadow:var(--shadow);font-size:.85rem;font-weight:750}.float.one{top:18px;left:0}.float.two{bottom:22px;right:0}.float small{display:block;color:var(--muted);font-weight:500}
+main{padding:42px 0 80px}.adslot{margin:0 auto 34px;min-height:94px;border:1px dashed #c9cedb;background:#fff;border-radius:15px;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:#8992a6;font-size:.82rem}.adslot strong{display:block;color:#68738b;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}.adslot p{margin:3px 0 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:40px 0 20px}.section-head h2{font-size:1.8rem;letter-spacing:-.045em;margin:0}.section-head p{margin:5px 0 0;color:var(--muted)}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 24px}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 14px;color:#59657d;cursor:pointer;font-size:.88rem}.filter.active,.filter:hover{background:var(--navy);color:white;border-color:var(--navy)}.search{width:min(310px,100%);padding:11px 14px;border:1px solid var(--line);border-radius:11px;background:white;outline:none}.search:focus{border-color:var(--purple);box-shadow:0 0 0 3px #6958e81c}
+.featured{display:grid;grid-template-columns:1.05fr .95fr;background:white;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:25px;min-height:310px}.feature-visual{background:linear-gradient(140deg,#c9f4e4,#a9d8d2 50%,#8278dc);display:grid;place-items:center;position:relative;overflow:hidden}.feature-visual:before,.feature-visual:after{content:"";position:absolute;border:1px solid #fff9;border-radius:50%;width:280px;height:280px}.feature-visual:after{width:390px;height:390px}.feature-icon{font-size:104px;z-index:1;filter:drop-shadow(0 15px 15px #34445b22)}.feature-copy{padding:35px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.kicker{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--purple);font-weight:850}.feature-copy h3{font-size:1.8rem;line-height:1.2;letter-spacing:-.045em;margin:10px 0}.feature-copy p{color:var(--muted);margin:0 0 18px}.readlink{border:0;background:none;color:var(--purple);font-weight:800;cursor:pointer;padding:0}.readlink:hover{text-decoration:underline}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.article-card{background:white;border:1px solid #edf0f6;border-radius:18px;overflow:hidden;box-shadow:0 6px 25px #1c2b4d08;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}.article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card-art{height:155px;display:grid;place-items:center;font-size:58px;position:relative;overflow:hidden}.card-art:before{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff88;border-radius:50%}.card-art span{z-index:1}.art-green{background:linear-gradient(135deg,#d6f5e9,#93d6c4)}.art-purple{background:linear-gradient(135deg,#e3ddff,#9f92f0)}.art-blue{background:linear-gradient(135deg,#d7e9ff,#8eb9e9)}.art-orange{background:linear-gradient(135deg,#ffe7c8,#f2b477)}.art-pink{background:linear-gradient(135deg,#ffe0ed,#e8a4c4)}.art-dark{background:linear-gradient(135deg,#cbd3e9,#8796bd)}.card-body{padding:21px;display:flex;flex-direction:column;flex:1}.meta{font-size:.75rem;color:var(--muted);display:flex;gap:9px;align-items:center;flex-wrap:wrap}.category{color:var(--purple);font-weight:850;text-transform:uppercase;letter-spacing:.08em}.card-body h3{font-size:1.16rem;line-height:1.32;letter-spacing:-.025em;margin:10px 0}.card-body p{color:var(--muted);font-size:.92rem;margin:0 0 17px}.card-bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:12px}.empty{display:none;text-align:center;color:var(--muted);padding:35px;background:white;border-radius:15px}
+.newsletter{margin-top:62px;padding:34px;border-radius:22px;background:var(--navy);color:white;display:flex;justify-content:space-between;align-items:center;gap:30px}.newsletter h2{margin:0;font-size:1.5rem;letter-spacing:-.04em}.newsletter p{margin:5px 0 0;color:#cbd5ed}.newsletter-note{font-size:.8rem;color:#cbd5ed}
+footer{background:#0b1429;color:#d5dced;padding:36px 0}.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.foot p{color:#9eabc7;font-size:.85rem;max-width:520px}.footlinks{display:flex;gap:18px;flex-wrap:wrap}.footlinks a{color:#d5dced;text-decoration:none;font-size:.85rem}.footlinks a:hover{text-decoration:underline}
+.reader{display:none;background:white;border-radius:22px;padding:clamp(22px,5vw,58px);box-shadow:var(--shadow);margin:10px 0 40px}.reader.open{display:block}.reader .back{border:0;background:#f0efff;color:var(--purple);padding:9px 13px;border-radius:9px;font-weight:750;cursor:pointer;margin-bottom:28px}.reader h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.13;letter-spacing:-.055em;max-width:850px;margin:12px 0}.reader .intro{font-size:1.16rem;color:#53617b;max-width:800px}.reader .prose{max-width:790px;margin:32px auto 0;font-size:1.02rem;color:#34415a}.reader .prose h2{font-size:1.55rem;letter-spacing:-.035em;margin:38px 0 10px;color:var(--ink)}.reader .prose h3{font-size:1.2rem;margin:28px 0 8px;color:var(--ink)}.reader .prose p{margin:0 0 17px}.reader .prose li{margin:8px 0}.reader .prose a{color:var(--purple)}.reader .note{background:#f5f4ff;border-left:3px solid var(--purple);padding:15px 18px;border-radius:0 10px 10px 0;margin:22px 0;color:#4e5874}.reader .source{font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:35px}.reader .source a{display:block;margin:7px 0}
+@media(max-width:850px){.hero-inner{grid-template-columns:1fr}.hero-art{min-height:230px}.orb{width:190px;height:190px;font-size:78px}.grid{grid-template-columns:repeat(2,1fr)}.featured{grid-template-columns:1fr}.feature-visual{min-height:210px}.newsletter{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){.wrap{width:min(100% - 28px,1160px)}.nav{padding:14px 0;align-items:flex-start;flex-direction:column}.navlinks{gap:15px;flex-wrap:wrap}.hero{padding:55px 0}.hero-art{min-height:190px}.orb{width:155px;height:155px;font-size:65px}.float{font-size:.75rem;padding:9px 11px}.grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.feature-copy{padding:25px}.feature-copy h3{font-size:1.5rem}.newsletter{padding:25px}.reader{padding:22px 18px}.reader .prose{font-size:.97rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="top">
-    <div class="logo">💎 WebCash</div>
-    <nav>
-      <a href="#accueil">Accueil</a>
-      <a href="#articles">Articles</a>
-      <a href="#apropos">À propos</a>
-    </nav>
-  </div>
+ <div class="wrap nav">
+  <a class="brand" href="#" aria-label="WebCash, accueil"><span class="brandmark">✦</span> WebCash</a>
+  <nav class="navlinks" aria-label="Navigation principale">
+   <a href="#articles">Articles</a><a href="#apropos">À propos</a><a class="nav-cta" href="#articles">Explorer le magazine ↗</a>
+  </nav>
+ </div>
 </header>
-
-<section class="hero" id="accueil">
-  <h1>Bienvenue sur WebCash !</h1>
-  <p>Le web regorge de découvertes. Explorons-les ensemble.</p>
-  <a href="#articles">
-    <button>Découvrir les articles</button>
-  </a>
+<section class="hero">
+ <div class="wrap hero-inner">
+  <div>
+   <div class="eyebrow"><span class="dot"></span> Le numérique, simplement</div>
+   <h1>Comprendre le web.<br><span>Découvrir plus.</span></h1>
+   <p>Des guides clairs, des astuces utiles et des idées pour profiter d’Internet et de la technologie au quotidien.</p>
+   <a class="primary" href="#articles">Lire les articles <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="hero-art" aria-hidden="true"><div class="orb">✦</div><div class="float one">💡 Astuces pratiques<small>À appliquer au quotidien</small></div><div class="float two">🌐 Curiosité numérique<small>Le web à portée de clic</small></div></div>
+ </div>
 </section>
-
-<main>
-  <div class="ad">
-    <div>
-      <strong>Emplacement publicitaire</strong>
-      <p>Publicité à intégrer après validation par une régie</p>
-    </div>
+<main class="wrap">
+ <div class="adslot" aria-label="Espace publicitaire réservé"><div><strong>Espace publicitaire</strong><p>Emplacement réservé — aucune publicité n’est diffusée pour le moment.</p></div></div>
+ <div id="listing">
+  <div class="section-head"><div><h2>À la une</h2><p>Des sujets utiles pour mieux maîtriser le numérique.</p></div><input id="search" class="search" type="search" placeholder="⌕  Rechercher un article…" aria-label="Rechercher un article"></div>
+  <div class="featured" id="featured">
+   <div class="feature-visual" aria-hidden="true"><div class="feature-icon">🛡️</div></div>
+   <div class="feature-copy"><span class="kicker">Guide essentiel · Sécurité</span><h3>Protéger sa vie privée sur Internet : les bons réflexes</h3><p>Mots de passe, données personnelles, cookies et arnaques : les gestes concrets pour naviguer plus sereinement.</p><button class="readlink" data-open="privacy">Lire le guide →</button></div>
   </div>
-
-  <section id="articles">
-    <div class="tools">
-      <h2>📰 Nos articles</h2>
-      <input id="search" type="search"
-        placeholder="Rechercher un article..."
-        aria-label="Rechercher un article">
-    </div>
-
-    <div class="grid" id="articleGrid">
-      <article class="card" data-search="internet sécurité mot de passe">
-        <span class="tag">SÉCURITÉ</span>
-        <h3>Comment créer un mot de passe sécurisé ?</h3>
-        <p>Découvre les bonnes pratiques pour mieux protéger tes comptes.</p>
-        <button onclick="showArticle(0)">Lire la suite</button>
-      </article>
-
-      <article class="card" data-search="technologie ordinateur pc entretien">
-        <span class="tag">TECHNOLOGIE</span>
-        <h3>5 astuces pour entretenir son PC</h3>
-        <p>Quelques conseils pour garder un ordinateur en bon état.</p>
-        <button onclick="showArticle(1)">Lire la suite</button>
-      </article>
-
-      <article class="card" data-search="internet navigateur astuces">
-        <span class="tag">ASTUCES</span>
-        <h3>Des fonctions utiles de ton navigateur</h3>
-        <p>Apprends à utiliser quelques fonctions pratiques du web.</p>
-        <button onclick="showArticle(2)">Lire la suite</button>
-      </article>
-    </div>
-
-    <section id="reader" class="card hidden" style="margin-top:25px">
-      <button onclick="closeArticle()">← Retour aux articles</button>
-      <h2 id="articleTitle"></h2>
-      <div id="articleContent"></div>
-    </section>
-    <p id="noResult" class="hidden">Aucun article trouvé.</p>
-  </section>
-
-  <div class="ad">
-    <div>
-      <strong>Deuxième emplacement publicitaire</strong>
-      <p>Espace réservé à une future publicité</p>
-    </div>
+  <div class="filters" role="group" aria-label="Filtrer par catégorie">
+   <button class="filter active" data-filter="Tout">Tout</button><button class="filter" data-filter="Sécurité">Sécurité</button><button class="filter" data-filter="Technologie">Technologie</button><button class="filter" data-filter="Astuces">Astuces</button><button class="filter" data-filter="Culture web">Culture web</button>
   </div>
-
-  <section id="apropos" class="card">
-    <h2>À propos de WebCash</h2>
-    <p>WebCash est un site consacré aux astuces,
-    aux découvertes et aux informations sur Internet.</p>
-  </section>
+  <div class="grid" id="grid"></div><div class="empty" id="empty">Aucun article ne correspond à cette recherche.</div>
+ </div>
+ <article class="reader" id="reader" aria-live="polite">
+  <button class="back" id="back">← Retour aux articles</button>
+  <div class="kicker" id="readerCat"></div><h1 id="readerTitle"></h1><p class="intro" id="readerIntro"></p>
+  <div class="meta" id="readerMeta"></div><div class="prose" id="readerBody"></div><div class="source" id="readerSources"></div>
+ </article>
+ <div class="adslot" aria-label="Espace publicitaire réservé"><div><strong>Espace publicitaire</strong><p>Emplacement réservé — à connecter uniquement après validation par une régie.</p></div></div>
+ <section class="newsletter" id="apropos"><div><h2>Bienvenue chez WebCash ✨</h2><p>Un magazine indépendant pour apprendre, comprendre et explorer le monde numérique.</p></div><div class="newsletter-note">Pas de collecte d’e-mail pour le moment.</div></section>
 </main>
-
-<footer>
-  <p>© 2026 WebCash - Tous droits réservés</p>
-  <p>
-    <a href="mailto:contact@exemple.fr">Contact</a>
-    <a href="#apropos">À propos</a>
-  </p>
-</footer>
-
+<footer><div class="wrap foot"><div><a class="brand" href="#"><span class="brandmark">✦</span> WebCash</a><p>Des contenus pratiques pour naviguer, apprendre et découvrir. Les articles sont informatifs : vérifie les recommandations importantes auprès des sources officielles.</p><p>© <span id="year"></span> WebCash</p></div><div class="footlinks"><a href="#apropos">À propos</a><a href="mailto:contact@exemple.fr">Contact (à configurer)</a></div></div></footer>
 <script>
-const articles = [
-  {
-    title: "Comment créer un mot de passe sécurisé ?",
-    content: `
-      <p>Un mot de passe solide est essentiel pour protéger
-      ses comptes sur Internet.</p>
-      <h3>Quelques conseils</h3>
-      <ul>
-        <li>Utilise des mots de passe longs et uniques.</li>
-        <li>Évite les informations personnelles évidentes.</li>
-        <li>Utilise un gestionnaire de mots de passe.</li>
-        <li>Active la double authentification quand c'est possible.</li>
-      </ul>
-      <p>Ne partage jamais tes mots de passe avec d'autres personnes.</p>
-    `
-  },
-  {
-    title: "5 astuces pour entretenir son PC",
-    content: `
-      <p>Entretenir régulièrement son ordinateur permet
-      de le garder en bon état.</p>
-      <h3>Nos conseils</h3>
-      <ul>
-        <li>Nettoie régulièrement les fichiers inutiles.</li>
-        <li>Installe les mises à jour.</li>
-        <li>Évite de bloquer les aérations.</li>
-        <li>Fais des sauvegardes de tes fichiers.</li>
-        <li>Supprime les logiciels que tu n'utilises plus.</li>
-      </ul>
-    `
-  },
-  {
-    title: "Des fonctions utiles de ton navigateur",
-    content: `
-      <p>Ton navigateur possède de nombreuses fonctions
-      pratiques souvent méconnues.</p>
-      <h3>Quelques exemples</h3>
-      <ul>
-        <li>Utilise les favoris pour retrouver tes sites.</li>
-        <li>Ouvre plusieurs onglets pour travailler.</li>
-        <li>Utilise la navigation privée pour certaines sessions.</li>
-        <li>Vérifie les autorisations accordées aux sites.</li>
-      </ul>
-    `
-  }
+const articles=[
+{id:"privacy",cat:"Sécurité",title:"Protéger sa vie privée sur Internet : les bons réflexes",intro:"Nos comptes, nos recherches et nos appareils laissent des traces. Voici comment mieux comprendre ses données et réduire les risques sans devenir expert en informatique.",time:"8 min",icon:"🛡️",color:"art-green",date:"Guide pratique",body:`
+<p>Internet facilite énormément la vie : on échange avec ses proches, on apprend, on achète et on accède à une quantité immense d’informations. En contrepartie, l’utilisation de services en ligne implique souvent le traitement de données personnelles. La bonne approche n’est pas de tout éviter, mais de comprendre ce que l’on partage et de garder le contrôle autant que possible.</p>
+<h2>1. Quelles informations partage-t-on ?</h2>
+<p>Une donnée personnelle est une information qui permet d’identifier une personne, directement ou indirectement. Il peut s’agir d’un nom, d’une adresse e-mail, d’une photo, d’une localisation, d’un identifiant en ligne ou encore d’informations liées à ses habitudes. Une donnée qui paraît anodine isolément peut parfois devenir révélatrice lorsqu’elle est croisée avec d’autres.</p>
+<p>Les services ne collectent pas tous les mêmes informations. Certains en ont besoin pour fonctionner — par exemple, une adresse de livraison pour envoyer une commande. D’autres informations peuvent servir à personnaliser l’expérience, mesurer l’audience ou proposer des publicités. Lire les réglages de confidentialité permet de mieux comprendre ces usages.</p>
+<h2>2. Construire des comptes plus difficiles à pirater</h2>
+<p>Un mot de passe réutilisé est un risque : si un service subit une fuite, les identifiants peuvent être testés sur d’autres sites. Utilise donc un mot de passe différent pour chaque compte important. Une phrase de passe longue et unique est souvent plus facile à retenir qu’une suite courte et compliquée.</p>
+<ul><li>Privilégie des mots de passe longs et uniques.</li><li>Utilise un gestionnaire de mots de passe réputé si cela t’aide à les conserver.</li><li>Active l’authentification à deux facteurs, surtout sur ta messagerie.</li><li>Conserve les codes de récupération dans un endroit sûr.</li></ul>
+<p>La double authentification ajoute une vérification en plus du mot de passe. Une application d’authentification ou une clé de sécurité peut notamment limiter les conséquences d’un mot de passe volé. Aucun système n’est parfait, mais ces mesures rendent l’accès frauduleux plus difficile.</p>
+<h2>3. Reconnaître les tentatives d’hameçonnage</h2>
+<p>L’hameçonnage — souvent appelé phishing — consiste à se faire passer pour un organisme ou une personne de confiance afin d’obtenir des informations ou de pousser à une action risquée. Le message peut parler d’un colis bloqué, d’un compte suspendu ou d’un remboursement à réclamer.</p>
+<p>Prends le temps de vérifier l’adresse de l’expéditeur et le domaine du lien. Les fautes ne sont pas systématiques : certains messages frauduleux sont très bien rédigés. En cas de doute, ne passe pas par le lien reçu. Ouvre toi-même l’application ou le site officiel, ou contacte l’organisme avec des coordonnées trouvées indépendamment.</p>
+<div class="note"><strong>Réflexe utile :</strong> une demande urgente de mot de passe, de code de validation ou de coordonnées bancaires doit toujours éveiller la méfiance. Ne communique jamais un code de connexion à une personne qui te le réclame.</div>
+<h2>4. Comprendre les cookies et les réglages de confidentialité</h2>
+<p>Les cookies sont de petits éléments enregistrés par le navigateur. Certains sont nécessaires au fonctionnement d’un service, par exemple pour garder une session ouverte. D’autres peuvent contribuer à mesurer l’audience ou à suivre la navigation à des fins publicitaires.</p>
+<p>Lorsque le bandeau de consentement le permet, prends le temps de choisir les catégories que tu acceptes. Tu peux également consulter les réglages du navigateur pour supprimer des cookies, limiter certains suivis ou gérer les autorisations des sites. Les options exactes varient selon le navigateur.</p>
+<h2>5. Faire le tri dans les applications et les autorisations</h2>
+<p>Une application n’a pas forcément besoin d’accéder en permanence à ta caméra, à ton microphone ou à ta localisation. Dans les paramètres de ton téléphone ou de ton ordinateur, vérifie les autorisations accordées. Retire celles qui ne sont pas nécessaires et désinstalle les applications que tu n’utilises plus.</p>
+<p>Sur les réseaux sociaux, pense aussi à vérifier qui peut voir tes publications, te retrouver ou t’envoyer des messages. Les réglages de visibilité sont souvent modifiables après la création du compte.</p>
+<h2>6. Wi-Fi public : rester prudent</h2>
+<p>Un réseau Wi-Fi public peut être pratique, mais son nom ne garantit pas qu’il appartient bien au lieu annoncé. Évite les réseaux inconnus et désactive la connexion automatique lorsque tu n’en as pas besoin. Vérifie que les sites sensibles utilisent une connexion HTTPS et garde tes appareils à jour.</p>
+<p>Un VPN peut protéger une partie du trafic entre ton appareil et le fournisseur VPN, mais il ne rend pas anonyme et ne remplace ni les mises à jour ni la prudence face aux faux sites. Il faut donc comprendre ce qu’un outil fait réellement avant de lui faire confiance.</p>
+<h2>7. Garder ses appareils à jour</h2>
+<p>Les mises à jour corrigent parfois des failles de sécurité. Installe celles de ton système, de ton navigateur et de tes applications depuis les canaux officiels. Pense aussi aux sauvegardes : elles ne préviennent pas toutes les attaques, mais elles peuvent aider à retrouver ses fichiers après une panne ou un incident.</p>
+<h2>En résumé</h2>
+<p>La protection de la vie privée repose surtout sur des habitudes régulières : partager moins d’informations inutiles, sécuriser ses comptes, vérifier les liens, contrôler les autorisations et maintenir ses appareils à jour. Commence par la messagerie principale et les comptes importants, puis améliore tes réglages petit à petit.</p>` ,sources:[["CNIL — Protéger ses données personnelles","https://www.cnil.fr/fr/maitriser-mes-donnees"],["Cybermalveillance.gouv.fr — Hameçonnage","https://www.cybermalveillance.gouv.fr/"],["Cybermalveillance.gouv.fr — Les mots de passe","https://www.cybermalveillance.gouv.fr/"]]},
+{id:"pc",cat:"Technologie",title:"PC lent : 12 vérifications pour retrouver un ordinateur plus réactif",intro:"Avant de changer de machine, quelques vérifications simples peuvent aider à comprendre ce qui ralentit un ordinateur Windows.",time:"9 min",icon:"💻",color:"art-blue",date:"Guide pratique",body:`
+<p>Un ordinateur lent peut avoir plusieurs causes : trop de programmes ouverts, un espace de stockage presque plein, une application bloquée, une surchauffe ou un composant vieillissant. Il vaut mieux observer le problème avant de modifier des réglages au hasard.</p>
+<h2>1. Redémarrer et observer</h2><p>Un redémarrage complet peut fermer des processus bloqués et terminer certaines mises à jour. Si le PC est lent uniquement au démarrage, note à quel moment le ralentissement apparaît : avant l’ouverture de session, au lancement d’un logiciel ou après quelques minutes d’utilisation.</p>
+<h2>2. Ouvrir le Gestionnaire des tâches</h2><p>Sur Windows, le raccourci Ctrl + Maj + Échap ouvre le Gestionnaire des tâches. Dans l’onglet Processus, regarde si le processeur, la mémoire ou le disque est constamment très sollicité. Trie les colonnes pour repérer les applications les plus gourmandes.</p><p>Ne ferme pas un processus simplement parce que son nom est inconnu. Recherche son rôle ou laisse-le tranquille s’il semble lié au système.</p>
+<h2>3. Examiner les applications au démarrage</h2><p>Dans le Gestionnaire des tâches, la rubrique Applications de démarrage indique les logiciels qui se lancent avec Windows. Désactive uniquement les applications que tu reconnais et dont tu n’as pas besoin immédiatement. Cela peut raccourcir le démarrage et réduire les programmes actifs en arrière-plan.</p>
+<h2>4. Libérer de l’espace</h2><p>Ouvre Paramètres, puis Système et Stockage. Windows peut proposer de supprimer des fichiers temporaires. Vérifie toujours ce qui sera effacé : ne supprime pas tes documents personnels par précipitation. Désinstaller les logiciels inutilisés et déplacer les gros fichiers peut également aider.</p>
+<h2>5. Réduire les onglets et extensions</h2><p>Les pages Web et extensions peuvent consommer beaucoup de mémoire. Ferme les onglets dont tu n’as plus besoin, retire les extensions inutilisées et vérifie si le navigateur dispose d’un mode d’économie de mémoire. Si un seul site ralentit tout, teste-le dans une fenêtre séparée.</p>
+<h2>6. Installer les mises à jour officielles</h2><p>Les mises à jour de Windows et des applications corrigent des bugs et des problèmes de compatibilité. Utilise Windows Update et les sites officiels des fabricants pour les pilotes. Méfie-toi des outils inconnus qui promettent de tout accélérer ou de mettre à jour automatiquement chaque composant.</p>
+<h2>7. Vérifier la sécurité</h2><p>Des logiciels indésirables peuvent ralentir l’ordinateur ou afficher des fenêtres intempestives. Lance une analyse avec la Sécurité Windows et désinstalle les programmes que tu ne reconnais pas après vérification. Évite de télécharger des « nettoyeurs miracles » depuis des publicités ou des sites douteux.</p>
+<h2>8. Surveiller la chaleur</h2><p>Lorsque le processeur chauffe trop, l’ordinateur peut réduire ses performances pour se protéger. Vérifie que les aérations sont dégagées et que le PC repose sur une surface adaptée. Des ventilateurs anormalement bruyants, des arrêts soudains ou une chaleur inhabituelle justifient un diagnostic plus poussé.</p>
+<h2>9. Simplifier les effets visuels</h2><p>Sur certaines machines anciennes, réduire les animations et effets visuels peut rendre l’interface plus réactive. Recherche « Ajuster l’apparence et les performances de Windows » dans le menu Démarrer et choisis les options qui te conviennent. Le gain dépend beaucoup du matériel.</p>
+<h2>10. Comprendre le rôle du disque</h2><p>Un SSD est généralement bien plus rapide qu’un disque dur mécanique pour démarrer le système et ouvrir des programmes. Si ton PC utilise encore un disque dur ancien, un SSD compatible peut apporter une amélioration sensible. C’est toutefois une modification matérielle : vérifie la compatibilité et sauvegarde tes fichiers avant toute intervention.</p>
+<h2>11. Éviter les optimisations risquées</h2><p>Les logiciels qui promettent de « booster » le PC en supprimant des fichiers système ou en modifiant le registre peuvent causer plus de problèmes qu’ils n’en résolvent. Privilégie les outils intégrés à Windows et ne modifie pas les paramètres avancés sans comprendre leur effet.</p>
+<h2>12. Sauvegarder et demander un diagnostic si nécessaire</h2><p>Si le PC reste lent, redémarre tout seul ou affiche des erreurs, le problème peut être matériel ou lié au système. Sauvegarde d’abord les fichiers importants. Un diagnostic peut aider à vérifier l’état du stockage, la mémoire et le refroidissement avant d’envisager une réparation.</p>
+<div class="note"><strong>À retenir :</strong> commence par observer l’utilisation des ressources dans le Gestionnaire des tâches. C’est souvent le moyen le plus simple de distinguer un logiciel trop gourmand d’un problème plus général.</div>
+<h2>Conclusion</h2><p>Un entretien raisonnable peut améliorer le confort d’utilisation, mais aucune astuce ne transforme un matériel ancien en ordinateur récent. Identifie la cause, avance étape par étape et évite les modifications risquées. Tu gagneras du temps — et tu éviteras peut-être un achat inutile.</p>`,sources:[["Microsoft Support — Aide et apprentissage Windows","https://support.microsoft.com/fr-fr/windows"],["Sécurité Windows — Microsoft Support","https://support.microsoft.com/fr-fr/windows"]]},
+{id:"browser",cat:"Astuces",title:"10 fonctions de navigateur qui font gagner du temps au quotidien",intro:"Raccourcis, favoris, recherche dans une page et paramètres : découvre des fonctions souvent oubliées de ton navigateur.",time:"6 min",icon:"🧭",color:"art-purple",date:"Astuces",body:`
+<p>On utilise souvent son navigateur sans explorer ses outils. Pourtant, quelques fonctions intégrées peuvent simplifier les recherches, l’organisation des pages et la navigation. Les exemples ci-dessous concernent principalement les navigateurs sur ordinateur ; certains raccourcis peuvent varier selon le système.</p>
+<h2>1. Retrouver un onglet fermé</h2><p>Tu as fermé une page par erreur ? Sur de nombreux navigateurs Windows, Ctrl + Maj + T permet de rouvrir le dernier onglet fermé. Tu peux répéter le raccourci pour retrouver plusieurs onglets récents.</p>
+<h2>2. Rechercher un mot dans une longue page</h2><p>Avec Ctrl + F, ouvre la recherche dans la page. Saisis un mot ou une expression pour repérer les passages correspondants. C’est particulièrement pratique dans les articles, les documents en ligne et les pages de résultats.</p>
+<h2>3. Organiser les favoris par dossiers</h2><p>Enregistre les sites utiles dans les favoris, puis classe-les dans des dossiers : cours, outils, actualités ou loisirs. Une barre de favoris bien organisée évite de refaire les mêmes recherches chaque jour.</p>
+<h2>4. Utiliser les groupes d’onglets</h2><p>Certains navigateurs permettent de regrouper les onglets par thème ou par projet. Tu peux par exemple réunir les pages d’un exposé dans un groupe et les sites de loisirs dans un autre. Cette fonction dépend du navigateur.</p>
+<h2>5. Épingler les pages fréquentes</h2><p>Si tu gardes toujours ouverts quelques services, l’option permettant d’épingler un onglet peut les rendre plus faciles à retrouver et prendre moins de place dans la barre d’onglets.</p>
+<h2>6. Traduire une page</h2><p>Les navigateurs modernes proposent parfois une traduction intégrée. Elle est utile pour comprendre rapidement une page dans une autre langue. Pour un devoir ou un texte important, vérifie les formulations : une traduction automatique peut perdre des nuances ou produire des erreurs.</p>
+<h2>7. Enregistrer une page en PDF</h2><p>La fonction Imprimer du navigateur permet souvent de choisir « Enregistrer au format PDF ». Cela peut être utile pour conserver une page de référence ou lire un document hors ligne. Respecte les droits d’auteur et les conditions du site lorsque tu conserves ou partages un contenu.</p>
+<h2>8. Gérer les autorisations</h2><p>Les paramètres du navigateur permettent de choisir quels sites peuvent envoyer des notifications ou accéder à certaines fonctions, comme la caméra et le microphone. Refuse les demandes qui ne sont pas nécessaires et retire les autorisations devenues inutiles.</p>
+<h2>9. Comprendre la navigation privée</h2><p>Une fenêtre privée limite notamment l’enregistrement local de l’historique et des cookies de session après sa fermeture. Elle ne masque pas automatiquement ton activité aux sites consultés, au réseau de ton établissement ou à ton fournisseur d’accès. Ce n’est donc pas un mode d’anonymat complet.</p>
+<h2>10. Vérifier les extensions</h2><p>Les extensions ajoutent des fonctions, mais elles peuvent aussi accéder à certaines données de navigation. Installe-les depuis les boutiques officielles, vérifie l’éditeur et les permissions demandées, puis supprime celles dont tu ne te sers plus.</p>
+<div class="note"><strong>Petit défi :</strong> essaie aujourd’hui Ctrl + F, Ctrl + Maj + T et l’organisation des favoris. Ce sont trois gestes simples qui peuvent rapidement devenir des réflexes.</div>
+<h2>Conclusion</h2><p>Un navigateur bien réglé devient un outil de travail plus agréable. Prends quelques minutes pour découvrir ses paramètres et garde seulement les fonctions qui te sont vraiment utiles.</p>`,sources:[["Aide Google Chrome","https://support.google.com/chrome/?hl=fr"],["Aide Firefox","https://support.mozilla.org/fr/products/firefox"]]},
+{id:"phishing",cat:"Sécurité",title:"Phishing : comment repérer un message frauduleux avant de cliquer",intro:"Un colis, une banque ou un compte bloqué : les messages d’hameçonnage jouent souvent sur l’urgence. Voici les indices à examiner.",time:"7 min",icon:"✉️",color:"art-orange",date:"Sécurité",body:`
+<p>Un message inattendu annonce un problème avec un compte, une livraison ou un paiement. Il contient un bouton qui invite à agir immédiatement. Ce scénario est fréquent dans les tentatives d’hameçonnage, aussi appelé phishing.</p>
+<h2>Pourquoi ces messages fonctionnent-ils ?</h2><p>Les fraudeurs cherchent à provoquer une réaction rapide : peur de perdre l’accès à un compte, envie de récupérer un colis ou espoir d’obtenir un remboursement. Le message peut imiter l’apparence d’une entreprise connue. L’objectif est souvent de récupérer des identifiants, des données bancaires ou un code de validation.</p>
+<h2>Les indices à vérifier</h2><ul><li><strong>L’expéditeur :</strong> examine l’adresse complète, pas seulement le nom affiché.</li><li><strong>Le lien :</strong> vérifie le domaine avant de l’ouvrir. Un nom proche de l’original peut être trompeur.</li><li><strong>Le ton :</strong> les menaces, l’urgence excessive ou les promesses trop belles méritent de la prudence.</li><li><strong>La demande :</strong> un code de connexion ou un mot de passe ne doit pas être transmis à une personne qui le réclame.</li><li><strong>Le contexte :</strong> demande-toi si tu attends réellement ce colis ou cette opération.</li></ul>
+<p>Attention : les fautes d’orthographe ne sont pas un critère suffisant. Certains messages frauduleux sont bien écrits et personnalisés. À l’inverse, une entreprise légitime peut envoyer un message maladroit.</p>
+<h2>Que faire avant de répondre ?</h2><p>Ne clique pas sur le lien du message si tu as un doute. Ouvre plutôt l’application officielle ou saisis toi-même l’adresse du service dans le navigateur. Tu peux aussi contacter l’organisme avec un numéro ou une adresse trouvés indépendamment du message.</p>
+<p>Ne télécharge pas de pièce jointe inattendue et ne saisis pas de code reçu par SMS ou par application sur une page dont tu n’as pas vérifié l’adresse.</p>
+<h2>Si tu as déjà cliqué</h2><p>Cliquer sur un lien ne signifie pas automatiquement que ton appareil est compromis. En revanche, si tu as saisi un mot de passe, change-le rapidement depuis le site officiel, ainsi que sur les autres services où tu l’aurais réutilisé. Active la double authentification et vérifie les sessions ouvertes.</p><p>Si tu as communiqué des informations bancaires, contacte rapidement ta banque via ses canaux officiels. Si tu as téléchargé un fichier suspect, évite de l’ouvrir et lance une analyse de sécurité. En France, des services publics proposent des conseils et des démarches pour signaler certaines fraudes.</p>
+<div class="note"><strong>La règle simple :</strong> en cas de pression ou de doute, arrête-toi et vérifie par un autre canal. Quelques secondes de vérification valent mieux qu’une action précipitée.</div>
+<h2>Conclusion</h2><p>Les tentatives d’hameçonnage évoluent, mais les bons réflexes restent utiles : examiner les liens, ne jamais partager ses codes, accéder aux services par leurs applications officielles et demander conseil si nécessaire.</p>`,sources:[["Cybermalveillance.gouv.fr — Hameçonnage","https://www.cybermalveillance.gouv.fr/"],["Service-Public.fr — Cybermalveillance","https://www.service-public.fr/particuliers/vosdroits/N31138"]]},
+{id:"ai",cat:"Culture web",title:"Intelligence artificielle : ce qu’un assistant peut faire… et ce qu’il faut vérifier",intro:"Les assistants IA peuvent aider à rédiger, apprendre ou organiser des idées. Mais leurs réponses ne sont pas toujours exactes : apprenons à les utiliser avec recul.",time:"7 min",icon:"🤖",color:"art-pink",date:"Découverte",body:`
+<p>Les outils d’intelligence artificielle générative peuvent produire du texte, résumer des documents, proposer des idées ou aider à comprendre un sujet. Ils sont devenus accessibles depuis un navigateur ou une application. Pour bien les utiliser, il faut distinguer ce qu’ils savent faire de ce qu’ils peuvent se tromper à faire.</p>
+<h2>Comment fonctionne un assistant génératif ?</h2><p>Un modèle de langage apprend des régularités à partir de grands ensembles de données. Lorsqu’on lui pose une question, il génère une réponse en s’appuyant sur ces régularités et sur le contexte fourni. Il ne consulte pas nécessairement Internet en temps réel et ne vérifie pas automatiquement chaque affirmation.</p>
+<h2>Des usages utiles</h2><ul><li><strong>Apprendre :</strong> demander une explication avec des mots plus simples, puis poser des questions complémentaires.</li><li><strong>Organiser :</strong> transformer une liste d’idées en plan ou en étapes.</li><li><strong>Écrire :</strong> obtenir une première formulation, puis la corriger et l’adapter à sa propre voix.</li><li><strong>Programmer :</strong> comprendre un extrait de code ou repérer des pistes de correction.</li><li><strong>Créer :</strong> explorer des idées de projets, de titres ou de scénarios.</li></ul>
+<h2>Pourquoi les réponses peuvent-elles être fausses ?</h2><p>Un assistant peut présenter une information incorrecte avec beaucoup d’assurance, mélanger des faits, inventer une référence ou ne pas comprendre une consigne. On parle parfois d’hallucination. Une réponse fluide n’est donc pas une preuve de fiabilité.</p><p>Pour les sujets importants — santé, droit, argent, sécurité ou actualité — vérifie les points essentiels auprès de sources fiables et récentes. Demande les références, puis ouvre-les réellement : une citation qui semble plausible peut elle aussi être erronée.</p>
+<h2>Formuler une bonne demande</h2><p>Une consigne utile précise le contexte, l’objectif, le niveau attendu et le format souhaité. Par exemple, au lieu de demander « explique les SSD », tu peux préciser : « explique à un débutant la différence entre un SSD SATA et un SSD NVMe, avec un exemple concret et sans jargon inutile ».</p><p>Tu peux aussi demander à l’outil de signaler ses incertitudes, de séparer les faits des hypothèses et de proposer des pistes de vérification.</p>
+<h2>Protéger ses informations</h2><p>Évite de copier dans un assistant des mots de passe, des documents confidentiels ou des informations personnelles qui ne sont pas nécessaires. Les règles de conservation et d’utilisation des données dépendent du service et de ses paramètres. Consulte les informations de confidentialité de l’outil que tu utilises.</p>
+<h2>L’IA ne remplace pas ton jugement</h2><p>Un assistant peut accélérer certaines tâches, mais il ne connaît pas toujours les attentes d’un professeur, les contraintes d’un projet ou les détails d’une situation. Pour un devoir, utilise-le pour comprendre et progresser plutôt que pour rendre un texte que tu ne maîtrises pas.</p>
+<div class="note"><strong>Bonne méthode :</strong> demande une explication, reformule-la avec tes mots, puis vérifie les informations importantes. Tu profites de l’outil tout en gardant la maîtrise de ton travail.</div>
+<h2>Conclusion</h2><p>L’intelligence artificielle est un outil polyvalent, ni magique ni inutile. Son intérêt dépend de la façon dont on l’utilise : une demande claire, un regard critique et une vérification adaptée permettent d’en tirer davantage de bénéfices.</p>`,sources:[["CNIL — Intelligence artificielle","https://www.cnil.fr/fr/intelligence-artificielle"],["Commission européenne — Approche européenne de l’IA","https://digital-strategy.ec.europa.eu/fr/policies/european-approach-artificial-intelligence"]]}
 ];
-
-function showArticle(index) {
-  document.getElementById("articleTitle").textContent =
-    articles[index].title;
-  document.getElementById("articleContent").innerHTML =
-    articles[index].content;
-  document.getElementById("reader").classList.remove("hidden");
-  document.getElementById("reader").scrollIntoView({
-    behavior: "smooth"
-  });
+let activeFilter="Tout",query="";
+const grid=document.getElementById("grid"),reader=document.getElementById("reader"),listing=document.getElementById("listing");
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function render(){
+ const shown=articles.filter(a=>(activeFilter==="Tout"||a.cat===activeFilter)&&(`${a.title} ${a.intro} ${a.cat}`).toLowerCase().includes(query.toLowerCase()));
+ grid.innerHTML=shown.map(a=>`<article class="article-card"><div class="card-art ${a.color}" aria-hidden="true"><span>${a.icon}</span></div><div class="card-body"><div class="meta"><span class="category">${escapeHTML(a.cat)}</span><span>·</span><span>${escapeHTML(a.time)}</span></div><h3>${escapeHTML(a.title)}</h3><p>${escapeHTML(a.intro)}</p><div class="card-bottom"><button class="readlink" data-open="${a.id}">Lire l’article →</button><span class="meta">WebCash</span></div></div></article>`).join("");
+ document.getElementById("empty").style.display=shown.length?"none":"block";
 }
-
-function closeArticle() {
-  document.getElementById("reader").classList.add("hidden");
+function openArticle(id){
+ const a=articles.find(x=>x.id===id);if(!a)return;
+ document.getElementById("readerCat").textContent=a.cat;
+ document.getElementById("readerTitle").textContent=a.title;
+ document.getElementById("readerIntro").textContent=a.intro;
+ document.getElementById("readerMeta").textContent=`WebCash  ·  ${a.date}  ·  ${a.time} de lecture`;
+ document.getElementById("readerBody").innerHTML=a.body;
+ const src=document.getElementById("readerSources");
+ src.innerHTML="<strong>Pour approfondir</strong><p>Sources et ressources utiles :</p>"+a.sources.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener noreferrer">${escapeHTML(s[0])} ↗</a>`).join("");
+ listing.style.display="none";reader.classList.add("open");window.scrollTo({top:0,behavior:"smooth"});history.replaceState(null,"",`#article-${id}`);
+ document.title=a.title+" — WebCash";
 }
-
-document.getElementById("search").addEventListener("input", function() {
-  const query = this.value.toLowerCase();
-  let visible = 0;
-  document.querySelectorAll(".card[data-search]").forEach(card => {
-    const match = card.dataset.search.includes(query) ||
-      card.textContent.toLowerCase().includes(query);
-    card.style.display = match ? "" : "none";
-    if (match) visible++;
-  });
-  document.getElementById("noResult").classList.toggle(
-    "hidden", visible !== 0
-  );
-});
+function closeArticle(){reader.classList.remove("open");listing.style.display="block";history.replaceState(null,"",location.pathname);document.title="WebCash — Le numérique, simplement";window.scrollTo({top:document.getElementById("listing").offsetTop-20,behavior:"smooth"});}
+grid.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openArticle(b.dataset.open);});
+document.getElementById("featured").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)openArticle(b.dataset.open);});
+document.getElementById("back").addEventListener("click",closeArticle);
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));render();}));
+document.getElementById("search").addEventListener("input",e=>{query=e.target.value;render();});
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+const hash=location.hash.match(/^#article-(.+)$/);if(hash)openArticle(hash[1]);
 </script>
 </body>
-</html>
-
-</body>
-</html>
+</html>'''
+path = Path("/mnt/data/webcash-site-complet.html")
+path.write_text(html, encoding="utf-8")
+print(f"Fichier créé : {path.name} ({len(html):,} caractères)")
