@@ -1,11 +1,15 @@
-from pathlib import Path
-
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="WebCash : des guides pratiques, des astuces numériques et des découvertes pour mieux utiliser Internet et la technologie.">
+<meta name="description" content="WebCash : découvrez des astuces numériques, des conseils pour Internet, des actualités et des guides pratiques pour mieux utiliser le Web.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://valex1998.github.io/webcash/">
+<meta property="og:title" content="WebCash — Le numérique, simplement">
+<meta property="og:description" content="Des astuces, des guides et des découvertes pour profiter pleinement d’Internet.">
+<meta property="og:url" content="https://valex1998.github.io/webcash/">
+<meta property="og:type" content="website">
 <meta name="theme-color" content="#101b35">
 <title>WebCash — Le numérique, simplement</title>
 <style>
@@ -176,7 +180,4 @@ render();
 const hash=location.hash.match(/^#article-(.+)$/);if(hash)openArticle(hash[1]);
 </script>
 </body>
-</html>'''
-path = Path("/mnt/data/webcash-site-complet.html")
-path.write_text(html, encoding="utf-8")
-print(f"Fichier créé : {path.name} ({len(html):,} caractères)")
+</html>
