@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://valex1998.github.io/webcash/sitemap.xml
+Sitemap: https://TON-DOMAINE.fr/sitemap.xml
